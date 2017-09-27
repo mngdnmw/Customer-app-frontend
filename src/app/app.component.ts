@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Customer} from './customer/customer';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  firstValue = 0;
-  secondValue = 0;
-  calcExp= '+';
-
-  calculate() {
-    switch (this.calcExp) {
-      case '-': return this.firstValue * 1 - this.secondValue * 1;
-      case'/': return this.firstValue * 1 / this.secondValue * 1;
-      case'*': return this.firstValue * 1 * this.secondValue * 1;
-      default: return this.firstValue * 1 + this.secondValue * 1;
-    } }
+  customerFromAppComponent: Customer;
+  constructor() {
+    this.customerFromAppComponent = {firstName: 'Lars', lastName: 'Bilde'};
+  }
 }
