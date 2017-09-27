@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  firstValue = 0;
+  secondValue = 0;
+  calcExp= '+';
+
+  calculate() {
+    switch (this.calcExp) {
+      case '-': return this.firstValue * 1 - this.secondValue * 1;
+      case'/': return this.firstValue * 1 / this.secondValue * 1;
+      case'*': return this.firstValue * 1 * this.secondValue * 1;
+      default: return this.firstValue * 1 + this.secondValue * 1;
+    } }
 }
