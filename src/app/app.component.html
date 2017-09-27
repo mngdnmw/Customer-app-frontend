@@ -1,22 +1,2 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <!--<input [value]="title" (input)="title=$event.target.value">
-  <input (input)="title=$event.target.value"> -->
-  <input [(ngModel)]="firstValue">
-  <input [(ngModel)]="secondValue">
-  <h3>
-    <input type="radio" [(ngModel)]="calcExp" value="+">+
-    <br>
-    <input type="radio" [(ngModel)]="calcExp" value="-">-
-    <br>
-    <input type="radio" [(ngModel)]="calcExp" value="*">*
-    <br>
-    <input type="radio" [(ngModel)]="calcExp" value="/">/
-  </h3>
-  <h1>
-    <!--{{firstValue}}+{{secondValue}}={{firstValue*1+secondValue*1}}-->
-    {{firstValue}}{{calcExp}}{{secondValue}}={{calculate()}}
-  </h1>
-</div>
 <app-customer></app-customer>
 
