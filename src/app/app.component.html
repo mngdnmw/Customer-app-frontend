@@ -1,2 +1,6 @@
-<app-customer [customer]="customerFromAppComponent"></app-customer>
+<!--for loop inside angular: let - creates a local variable called cust
+For each cust inside the customers array, I'm going to create an app-customers component/tag
+and each of them are going to get a reference to the cust and that's going to be passed
+to customers-->
+<app-customer *ngFor="let cust of customers" [customer]="cust"></app-customer>
 
