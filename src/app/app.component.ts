@@ -9,21 +9,19 @@ import {CustomerService} from './customers/shared/customer.service';
 })
 export class AppComponent {
 
-  //create arrays in typescript
+  // create arrays in typescript
   customers: Customer[];
-  //customerFromAppComponent: Customer;
+  // customerFromAppComponent: Customer;
 
-  //dependency injection: moving the data responsiblity of grabbing the data to the service
-  //and that is used in the app component where it is dependency injected
+  // dependency injection: moving the data responsiblity of grabbing the data to the service
+  // and that is used in the app component where it is dependency injected
   constructor(private customerService: CustomerService) {
-    this.customers = customerService.getCustomers();
-    //initalise arrays in typescript
-    // this.customers = [
-    //   {firstName: 'Person', lastName: 'PersonLast'},
-    //   {firstName: 'Person2', lastName: 'PersonLast2'},
-    //   {firstName: 'Person3', lastName: 'PersonLast3'},
-    // ];
-
-    //this.customerFromAppComponent = {firstName: 'Lars', lastName: 'Bob'};
+    // Ask for a bunch of code to execute
+    customerService.getCustomers().subscribe(
+        // Executing and explaining when done and let's me know
+        customers => {
+          this.customers = customers;
+        }
+      );
   }
 }
