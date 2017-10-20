@@ -7,9 +7,6 @@ import {Customer} from './customers/shared/customer.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-// create arrays in typescript
-  customers: Customer[];
   constructor() {
   }
 }

@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {CustomerListComponent} from './customers/customer-list/customer-list.component';
 import {CustomerDetailComponent} from './customers/customer-detail/customer-detail.component';
 import {RouterModule, Routes} from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   {
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule.forRoot()
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]

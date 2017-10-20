@@ -4,5 +4,6 @@ and each of them are going to getAll a reference to the cust and that's going to
 to customers-->
 <h1> Customers </h1>
 <app-customer
-  *ngFor="let cust of customers"
-  [customer]="cust"></app-customer>
+  (click)="details(customer)"
+  *ngFor="let customer of customers"
+  [customer]="customer "></app-customer>
