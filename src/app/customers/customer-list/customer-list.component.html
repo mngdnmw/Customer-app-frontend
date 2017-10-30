@@ -1,9 +1,41 @@
-<!--for loop inside angular: let - creates a local variable called cust
-For each cust inside the customers array, I'm going to create an app-customers component/tag
-and each of them are going to getAll a reference to the cust and that's going to be passed
-to customers-->
-<h1> Customers </h1>
-<app-customer
-  (click)="details(customer)"
-  *ngFor="let customer of customers"
-  [customer]="customer "></app-customer>
+<!--&lt;!&ndash;for loop inside angular: let - creates a local variable called cust-->
+<!--For each cust inside the customers array, I'm going to create an app-customers component/tag-->
+<!--and each of them are going to getAll a reference to the cust and that's going to be passed-->
+<!--to customers&ndash;&gt;-->
+<!--<h1> Customers </h1>-->
+<!--<app-customer-->
+  <!--(click)="details(customer)"-->
+  <!--*ngFor="let customer of customers"-->
+  <!--[customer]="customer "></app-customer>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+      <h2> Customers
+      <div class ="pull-right">
+        <button class="btn btn-outline-success" (click)="createCustomer()">
+          <i class = "fa fa-plus" aria-hidden ="true"></i>
+        </button>
+      </div>
+      </h2>
+      <hr>
+    </div>
+    <div class="col-md-12">
+      <div class="list-group">
+        <div (click)="details(customer)" *ngFor="let customer of customers" class="list-group-item list-group-item-action">
+          <img class="rounded float-left img" src="http://via.placeholder.com/68x68">
+          <h5>{{customer.firstName}} {{customer.lastName}} </h5>
+          <div *ngIf="!customerToDelete || customerToDelete.id != customer.id" class="pull-right">
+            <button class ="btn btn-outline-danger" (click)="delete(customer, $event)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <button class ="btn btn-outline-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          </div>
+          <div *ngIf="customerToDelete && customerToDelete.id == customer.id" class="pull-right">
+            <button class ="btn btn-outline-danger" (click)="deleteConfirmed($event)"><i class="fa fa-trash" aria-hidden="true"></i>Sure?</button>
+            <button class ="btn btn-outline-info" (click)="deleteAborted($event)"> <i class="fa fa-times" aria-hidden="true"></i>Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
