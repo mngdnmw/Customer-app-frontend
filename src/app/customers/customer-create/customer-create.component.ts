@@ -45,4 +45,15 @@ export class CustomerCreateComponent implements OnInit {
   closeAlert() {
     this.customerCreatedSuccessfully = false;
   }
+
+  isInvalid(controlName: string) {
+    const control = this.customerGroup.controls[controlName];
+    return control.invalid && (control.touched || control.dirty);
+  }
+
+  isValid(controlName: string) {
+    const control = this.customerGroup.controls[controlName];
+    return !control.invalid && (control.touched || control.dirty);
+  }
 }
+

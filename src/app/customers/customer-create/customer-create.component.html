@@ -11,28 +11,56 @@
       <hr>
     </div>
     <div class="col-md-12">
-      <form (ngSubmit) ="save()"
+      <form (ngSubmit)="save()"
             [formGroup]="customerGroup"
             novalidate>
         <div class="form-group">
-          <label class="center-block">First Name:
-            <input class="form-control"
+          <label class="center-block col-md-12">First Name:
+            <input placeholder="Luke"
+                   class="form-control"
+                   [ngClass]="{
+                   'is-invalid': isInvalid('firstName'),
+                   'is-valid': isValid('firstName')}"
                    formControlName="firstName">
+            <div *ngIf="isInvalid('firstName')"
+                 class="invalid-feedback">
+              <div *ngIf="customerGroup.controls['firstName'].errors.required">
+                First name is required.
+              </div>
+              <div *ngIf="customerGroup.controls['firstName'].errors.minlength">
+                Name must be at least 2 characters long.
+              </div>
+            </div>
           </label>
-          <label class="center-block">Last Name:
-            <input class="form-control"
+          <label class="center-block col-md-12">Last Name:
+            <input placeholder="Skywalker"
+                   class="form-control"
+                   [ngClass]="{
+                   'is-invalid': isInvalid('lastName'),
+                   'is-valid': isValid('lastName')}"
                    formControlName="lastName">
+            <div *ngIf="isInvalid('lastName')"
+                 class="invalid-feedback">
+              <div *ngIf="customerGroup.controls['lastName'].errors.required">
+                Last name is required.
+              </div>
+              <div *ngIf="customerGroup.controls['lastName'].errors.minlength">
+                Name must be at least 2 characters long.
+              </div>
+            </div>
           </label>
-          <button [disabled] = "customerGroup.invalid"
+
+          <button [disabled]="customerGroup.invalid"
                   type="submit"
                   class="btn btn-outline-info">
             <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
           </button>
         </div>
       </form>
-      <ngb-alert *ngIf ="customerCreatedSuccessfully"
-                 (close) = "closeAlert()"
-                 type="success">New customer created</ngb-alert>
+      <ngb-alert *ngIf="customerCreatedSuccessfully"
+                 (close)="closeAlert()"
+                 type="success">New customer created
+      </ngb-alert>
       {{customerGroup.value | json}}
       {{customerGroup.status | json}}
 
