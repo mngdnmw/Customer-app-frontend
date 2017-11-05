@@ -29,4 +29,8 @@ export class CustomerService {
     return this.http.delete<Customer>
     (url + '/' + id);
   }
+
+  create(customer: Customer): Observable<Customer> {
+    return this.http.post<Customer>(url, customer);
+  }
 }
