@@ -4,5 +4,7 @@ export class Customer {
   id?: number;
   firstName: string;
   lastName: string;
-  addresses: Address[];
+  addresses?: Address[];
+  //The question mark means it's something you may or may not use
+  addressIds?: number[];
 }
